@@ -540,6 +540,7 @@ a, .link {
 */
 
 .image-portrait {
+    padding-top:60px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -825,4 +826,5 @@ a, .link {
     padding-top:60px;
     flex: 1 1;
     -ms-flex: 1 0 0px;
+    min-height: 100%;
 }
