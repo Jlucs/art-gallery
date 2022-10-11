@@ -1,6 +1,7 @@
+import next from 'next'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
-import PhoneMenu from '../Modal/PhoneMenu'
+import Link from 'next/link'
 
 type Props = {}
 
@@ -9,12 +10,11 @@ export default function Header({}: Props) {
   return (
     <header className="header">
         <div className="container container-fluid d-flex flex-row align-items-stretch justify-content-between">
-          
           <div id="begin" className="d-flex align-items-center justify-content-center">
-            {/* <PhoneMenu/> */}
-            <a className="header-logo d-flex align-items-center " href="/">
+            <Link href="/">
+              <a className="header-logo d-flex align-items-center"></a>
+            </Link>
               <img src="/images/logo.png"/>
-            </a>
           </div>
 
           <div id="center" className="d-flex align-items-center justify-content-center">
