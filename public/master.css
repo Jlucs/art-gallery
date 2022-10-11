@@ -1,5 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inspiration&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap');
+
 
 :root {
     
@@ -12,10 +19,10 @@ html, body {
     -ms-text-size-adjust: 100%;
     font-weight: 300;
     line-height: 1.42;
-    color: #0A0A0A;
+    color: #fff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: 'Poppins', sans-serif;
+    font-family: Inter, Helvetica, "sans-serif";
     font-size:13px;
 }
   
@@ -37,8 +44,9 @@ body {
 body {
     background-repeat: no-repeat;
     background-position: center top;
-    /* background: #f6f8fa; */
-    background:#fff;
+    /* background: #121418; */
+    background:#151521;
+    /* background: #0e0e0e; */
 }
 
 div {
@@ -163,11 +171,6 @@ a, .link {
     }
 }
 
-@media (min-width: 992px) {
-    .container-fluid {
-        padding: 0 30px;
-    }
-}
 
 .container-fluid--lg {
     padding:0 100px;
@@ -190,9 +193,12 @@ a, .link {
     }
 }
 
-
 .container-1480 {
     max-width:1480px;
+}
+
+.container-1280 {
+    max-width:1280px;
 }
 
 .container-1260 {
@@ -214,11 +220,33 @@ a, .link {
 
 /*
 |--------------------------------------------------------------------------
-| Spacing & Separators % Section
+| Typography
 |--------------------------------------------------------------------------
 */
 
+h1 {
+    font-size:36px;
+}
 
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}
+
+@media (min-width: 1400px) {
+
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -228,6 +256,14 @@ a, .link {
 
 .text-white {
     color:#fff;
+}
+
+.text-muted {
+    color:#9696a0;
+}
+
+.text-gray-800 {
+    color:#cdcdde;
 }
 
 /*
@@ -387,12 +423,102 @@ a, .link {
     left:0;
     right:0;
     position:fixed;
-    background:transparent;
-    height:60px;
+    height:70px;
     display:flex;
-    background-color: hsla(0,0%,100%,.6);
-    border:1px solid;
-    border-color: rgba(15,23,42,.1);
+    background:#1e1e2d;
+}
+
+.header #begin .header-logo img {
+    margin-right:16px;
+    border-radius:12px;
+    max-height:56px;
+}
+
+.header #begin .header-logo .logo-text {
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color:#fff;
+    font-family: 'Passions Conflict', cursive;
+}
+
+.header #begin .header-logo:hover .logo-text {
+    transition: 0.4s ease all;
+}
+
+.header .guide-wrapper {
+    cursor: pointer;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding-left:25px;
+    padding-right:25px;
+}
+
+.header .guide-wrapper .guide-text {
+    text-transform:uppercase;
+    font-size:15px;
+    color:#fff;
+}
+
+.header .guide-wrapper .guide {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 18px;
+    vertical-align: middle;
+}
+
+.header .guide-wrapper .guide .bar {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #565674;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.header .guide-wrapper .guide .bar:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #a6abab;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 1;
+    transition: .3s;
+}
+
+.header .guide-wrapper:hover .guide .bar:after {
+    left:0;
+}
+
+.header .guide-wrapper .guide .bar:nth-child(1):after {
+    transition-delay: .1s;
+}
+
+.header .guide-wrapper .guide .bar:nth-child(2):after {
+    transition-delay: .2s;
+}
+
+.header .guide-wrapper .guide .bar:nth-child(3):after {
+    transition-delay: .3s;
+}
+
+.header .guide-wrapper .guide .bar:nth-child(1) {
+    top: 0;
+}
+
+.header .guide-wrapper .guide .bar:nth-child(2) {
+    top: 8px;
+}
+
+.header .guide-wrapper .guide .bar:nth-child(3) {
+    top: 16px;
 }
 
 /*
@@ -423,8 +549,28 @@ a, .link {
     position: relative;
     width: 100%;
     color: #ffffff;
-    background: #161616;
-    height:80px;
+    background: #1e1e2d;
+    height:60px;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Scrollbar Component
+|--------------------------------------------------------------------------
+*/
+
+body::-webkit-scrollbar {
+    width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #323248;
+    border-radius:12px;
 }
 
 /*
@@ -433,7 +579,7 @@ a, .link {
 |--------------------------------------------------------------------------
 */
 
-.dialog {
+.image-modal.dialog {
     position:fixed;
     top:0;
     left:0;
@@ -459,7 +605,7 @@ a, .link {
     right:0;
     bottom:0;
     z-index:998;
-    background-color: #2f3137;
+    background: #151521;
 }
 
 .dialog-panel {
@@ -540,7 +686,6 @@ a, .link {
 */
 
 .image-portrait {
-    padding-top:60px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -548,7 +693,6 @@ a, .link {
 
 .image-portrait img {
     max-width:600px;
-    max-height:600px;
 }
 
 /*
@@ -682,13 +826,14 @@ a, .link {
 */
 
 .gallery {
-    padding: 40px 0;
+    padding: 80px 0;
 }
 
 .art-list-renderer ol {
     display: grid;
-    grid-gap: 36px;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    grid-gap: 25px;
+    /* grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); */
+    grid-template-columns: repeat(4,1fr);
     padding-left:25px;
     padding-right:25px;
 }
@@ -814,6 +959,222 @@ a, .link {
     transition: opacity 0.05s cubic-bezier(0.19, 1, 0.22, 1), transform 1.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+.painting-display {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Section styling
+|--------------------------------------------------------------------------
+*/
+
+.section-title {
+    padding-bottom:20px;
+}
+
+.section-title h1 {
+    margin:0;
+}
+
+.conclusion {
+    padding-top:80px;
+    padding-bottom:80px;
+}
+
+.conclusion p {
+    font-weight:400;
+    font-size:16px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Aside component
+|--------------------------------------------------------------------------
+*/
+
+.aside {
+    position: fixed;
+    z-index: 105;
+    top: 0;
+    width:265px;
+    bottom: 0;
+    left: 0;
+    flex-direction:column;
+    background-color: #1e1e2d;
+}
+
+.aside-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition-property: opacity;
+    opacity: 1;
+    z-index:102;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.aside-logo {
+    height:70px;
+}
+
+.menu, .menu-wrapper {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.menu-column {
+    flex-direction: column;
+    width: 100%;
+}
+
+.menu-item {
+    display: block;
+}
+
+.menu-item .menu-link {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    flex: 0 0 100%;
+    padding: 0.65rem 1rem;
+    transition: none;
+    outline: none !important;
+}
+
+.menu-item .menu-link .menu-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    margin-right: 0.5rem;
+}
+
+.menu-item .menu-link .menu-title {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.aside .menu .menu-item .menu-link .menu-title {
+    color: #9D9DA6;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Painting component
+|--------------------------------------------------------------------------
+*/
+
+.painting {
+    position:relative;
+    margin-bottom: 1.5rem;
+}
+
+@media  (max-width: 324px) {
+    .painting-col {
+        flex: 0 0 auto;
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 325px) and (max-width: 575.95px) {
+    .painting-col {
+        flex: 0 0 auto;
+        width: 50% !important;
+    }
+}
+
+.painting-default {
+    box-sizing: border-box;
+    display: block;
+    width: initial;
+    height: initial;
+    background: none;
+    opacity: 1;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    max-width: 100%;
+}
+
+.painting-default img {
+    display: block;
+    max-width: 100%;
+    width: initial;
+    height: initial;
+    background: none;
+    opacity: 1;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.painting-image {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+}
+
+.painting-image img {
+    position: absolute;
+    inset: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    border: none;
+    margin: auto;
+    display: block;
+    width: 0px;
+    height: 0px;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition-duration: .1s;
+    border-radius: 0.75rem;
+    aspect-ratio: auto;
+}
+
+.my-masonry-grid {
+    display: -webkit-box; /* Not needed if autoprefixing */
+    display: -ms-flexbox; /* Not needed if autoprefixing */
+    display: flex;
+    margin-left: -10px; /* gutter size offset */
+    margin-right: -10px; /* gutter size offset */
+    width: auto;
+  }
+  .my-masonry-grid_column {
+    padding-left:10px;  /* gutter size */
+    padding-right:10px; /* gutter size */
+    background-clip: padding-box;
+  }
+  
+  /* Style your items */
+  .my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
+    background: grey;
+    margin-bottom: 20px;
+  }
+
+  .painting img {
+    width:100%;
+  }
+
 /*
 |--------------------------------------------------------------------------
 | Layout structure -- keep at end of file!
@@ -823,8 +1184,12 @@ a, .link {
 .wrapper {
     transition: padding-left 0.3s ease;
     position:relative;
-    padding-top:60px;
     flex: 1 1;
     -ms-flex: 1 0 0px;
     min-height: 100%;
+    padding-top:70px;
+}
+
+.aside-enabled .wrapper {
+    padding-left:75px;
 }

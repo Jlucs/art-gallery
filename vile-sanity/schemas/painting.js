@@ -1,3 +1,5 @@
+import imageRatio from './imageRatio'
+
 export default {
     name: 'painting',
     title: 'Painting',
@@ -5,7 +7,7 @@ export default {
     fields: [
       {
         name: 'title',
-        title: 'painting title',
+        title: 'Painting title',
         type: 'string',
       },
       {
@@ -35,8 +37,18 @@ export default {
       },
       {
         name: 'alt',
-        title: 'image alt',
+        title: 'Image alt',
         type: 'string',
+      },
+      {
+        name: 'imageRatio',
+        title: 'image size type',
+        type: 'string',
+        options: {
+          list: [
+            ...imageRatio
+          ],
+        }
       },
       {
         name: 'slug',

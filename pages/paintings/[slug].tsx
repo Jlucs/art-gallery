@@ -15,7 +15,7 @@ interface Props {
 const Painting = ({ painting }: Props) => {
   return (
     <>
-      <section>
+      <section className="painting-display">
         <div className="container container-fluid container-1260">
             <div className="image-portrait">
                 <img src={painting.image && urlFor(painting.image).url()!} alt = {painting.alt} />

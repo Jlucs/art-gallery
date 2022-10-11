@@ -6,12 +6,13 @@ function Footer({}: Props) {
   return (
     
     <footer className="footer">
-        <div className="container container-fluid-large d-flex justify-content-between align-items-center flex-row">
-            <div className="footer-logo">
-                Logo
+        <div className="container container-fluid d-flex justify-content-between align-items-center flex-row">
+            <div className="footer-copyright">
+                <span className="text-muted">2022 © </span>
+                <span className="">Cherry Blossom Studio</span>
             </div>
             <div className="footer-nav">
-                Nav
+              
             </div>
         </div>
     </footer>

@@ -9,6 +9,9 @@ import { Painting, Collection, Category } from '../typings';
 import { useRouter } from "next/router";
 import { fetchPaintings } from '../utils/fetchPaintings'
 import { fetchCategories } from '../utils/fetchCategories'
+import Masonry from 'react-masonry-css'
+
+
 
 import RouteModal from '../components/Modal/RouteModal'
 import ImageDetail from '../components/Modal/ImageDetail'
@@ -17,9 +20,16 @@ interface Props {
   paintings: Painting[];
 }
 
+
+
 const Home = ({ paintings }: Props) => {
   let router = useRouter();
-
+  const breakpointColumnsObj = {
+    default: 4,
+    1100: 3,
+    700: 2,
+    500: 1
+  };
   return (
     <>  
         {router.query.image && (
@@ -33,37 +43,32 @@ const Home = ({ paintings }: Props) => {
         )}
 
         <section className="gallery">
-          
-          <div className="art-list-renderer">
-              <ol>
-                  {paintings.map((painting) => (
-                  <li key={painting._id} className="art">
-                      <Link href={`/?image=${painting.image && urlFor(painting.image).url()!}`} as={`/paintings/${painting.slug.current}`} scroll={false}>
-                          <a className="#">
-                              <div className="art-image">
-                                  <div className="thumbnail-base">
-                                      <div className="thumbnail-placeholder">
-                                          <img src={painting.image && urlFor(painting.image).url()!} alt = {painting.alt} />
-                                      </div>
-                                  </div>
-                              </div>
-                              <div className="art-content">
-                                <div className="art-title">
-                                  <span className="title-text">
-                                    {painting.title}
-                                  </span>
-                                </div>
-                              </div>
-                          </a>
-                      </Link>
-                  </li>
-                  ))}
-
-              </ol>
-          
-          </div>
-          
+          <div className="container container-fluid container-1280">
+            <div className="section-title">
+                <h1 className="">Feature Art</h1>
+            </div>
+            <Masonry
+              breakpointCols={breakpointColumnsObj}
+              className="my-masonry-grid"
+              columnClassName="my-masonry-grid_column">
+              {paintings.map((painting) => (
+                <Link href={`/?image=${painting.image && urlFor(painting.image).url()!}`} as={`/paintings/${painting.slug.current}`} scroll={false} key={painting._id}>
+                    <a>
+                        <div className="painting">
+                          <img src={painting.image && urlFor(painting.image).url()!} alt = {painting.alt} className="img-fluid" />
+                          {/* <img src="/images/test.webp"/> */}
+                        </div>
+                    </a>
+                </Link>
+              ))}
+            </Masonry>
+          </div>    
         </section>
+        {/* <section className="conclusion">
+          <div className="container container-fluid container-1280">
+            <p className="text-center">For any inquiries, contact us company@example.co.uk</p>
+          </div>
+        </section> */}
 
     </>
   )

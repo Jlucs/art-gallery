@@ -12,6 +12,7 @@ export interface Painting {
     }
     alt: string;
     body: [object];
+    imageRatio: string;
 };
 
 export interface Category {
