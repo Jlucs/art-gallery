@@ -7,20 +7,31 @@ import { sanityClient, urlFor } from "../../sanity";
 import { Painting } from '../../typings';
 import { GetStaticProps } from 'next'
 import groq from 'groq'
+import { useEffect } from 'react'
 
 interface Props {
   painting: Painting;
 }
 
 const Painting = ({ painting }: Props) => {
+  useEffect( () => {
+    const body = document.querySelector("body");
+    document.body.classList.add("header-disabled", "subheader-disabled", "footer-disabled");
+    return () => {
+      body?.classList.remove("header-disabled", "subheader-disabled", "footer-disabled");
+    }
+  });
   return (
     <>
       <section className="painting-display">
-        <div className="container container-fluid container-1260">
+        <img src={painting.image && urlFor(painting.image).url()!} alt = {painting.alt}/>
+        {/* <div className="container container-fluid container-1260">
             <div className="image-portrait">
-                <img src={painting.image && urlFor(painting.image).url()!} alt = {painting.alt} />
+              <div className="image-container">
+                <Image src={painting.image && urlFor(painting.image).url()!} alt = {painting.alt} layout="fill"/>
+              </div>
             </div>
-        </div>
+        </div> */}
       </section>
     </>
   )

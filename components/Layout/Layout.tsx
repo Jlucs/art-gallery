@@ -12,6 +12,7 @@ export default function Layout({ children }: Props) {
   return (
     <>
       <Header/>
+      <Subheader/>
       <div className="wrapper">
         {children}
       </div>

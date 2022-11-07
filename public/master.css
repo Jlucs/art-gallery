@@ -45,7 +45,8 @@ body {
     background-repeat: no-repeat;
     background-position: center top;
     /* background: #121418; */
-    background:#151521;
+    /* background:#151521; */
+    background:#181818;
     /* background: #0e0e0e; */
 }
 
@@ -76,6 +77,11 @@ figure img {
 
 img, svg {
     vertical-align: middle;
+    -webkit-transition: opacity 1000ms cubic-bezier(.33,0,.2,1);
+    -moz-transition: opacity 1000ms cubic-bezier(.33,0,.2,1);
+    -ms-transition: opacity 1000ms cubic-bezier(.33,0,.2,1);
+    -o-transition: opacity 1000ms cubic-bezier(.33,0,.2,1);
+    transition: opacity 1000ms cubic-bezier(.33,0,.2,1);
 }
 
 /*
@@ -91,6 +97,21 @@ img, svg {
 .img-fluid, .img-thumbnail {
     max-width: 100%;
     height: auto;
+}
+
+.image-container {
+    position:relative;
+}
+
+.image-container > * {
+    position: unset !important;
+}
+
+.image-container img {
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
 }
 
 /*
@@ -191,6 +212,10 @@ a, .link {
         padding-left: 35px;
         padding-right: 35px;
     }
+}
+
+.container-1680 {
+    max-width:1680px;
 }
 
 .container-1480 {
@@ -422,24 +447,39 @@ h1 {
     top:0;
     left:0;
     right:0;
-    position:fixed;
-    height:70px;
+    position:initial;
+    height:100px;
     display:flex;
-    background:#1e1e2d;
+    margin-top:25px;
 }
 
 .header #begin .header-logo img {
     margin-right:16px;
     border-radius:12px;
-    max-height:56px;
+    max-height:80px;
+    width:100%;
 }
 
-.header #begin .header-logo .logo-text {
+.header  .header-logo  {
     font-size: 28px;
     font-weight: 500;
-    letter-spacing: 2px;
     color:#fff;
-    font-family: 'Passions Conflict', cursive;
+    font-family: "poppins";
+}
+
+@media (max-width: 768px) {
+    .header #end {
+        display:none !important;
+    }
+    .header #center {
+        display:none !important;
+    }
+    .header .container {
+        align-items:center;
+    }
+    .header .container #begin {
+        flex:1;
+    }
 }
 
 .header #begin .header-logo:hover .logo-text {
@@ -521,6 +561,71 @@ h1 {
     top: 16px;
 }
 
+.header .social {
+    font-size: 0;
+    padding: 0 0 8% 0;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.header .social ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    max-width: none;
+    text-align: center;
+}
+
+.header .social ul li {
+    display: inline-block;
+}
+
+.header .social ul li a {
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: none;
+    letter-spacing: normal;
+    text-decoration: none;
+    border-radius: 1000px;
+    padding: 1.4em 2.8em 1.45em 2.8em;
+    margin: 0;
+    display: inline-block;
+    line-height: 20px;
+    vertical-align: top;
+    box-shadow: 0 16px 64px -18px #910f07;
+    transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    border: 3px solid #fff;
+    background-color: transparent;
+    text-align: center;
+    padding: 0;
+    width: 44px;
+    height: 44px;
+    line-height: 40px;
+    border-radius: 22px;
+    margin: 6px 6px;
+    border-color: rgba(243, 243, 240, 0.15);
+    transition: 0.1s;
+}
+
+.header .social ul li a:hover {
+    border-color: #f3f3f0;
+}
+
+.header .social ul li a svg {
+    fill:#fff;
+}
+
+.header-disabled .header {
+    display:none !important;
+    visibility:hidden;
+}
+
+.painting-display {
+
+}
+
 /*
 |--------------------------------------------------------------------------
 | Subheader Component
@@ -530,12 +635,19 @@ h1 {
 .subheader {
     z-index: 100;
     transition: left ease;
-    position:absolute;
+    position:initial;
     top:100px;
     left:0;
     right:0;
-    height:75px;
+    height:40px;
     background:#1e1e1e;
+    margin-top:25px;
+    margin-bottom:25px;
+}
+
+.subheader-disabled .subheader {
+    display:none !important;
+    visibility:hidden;
 }
 
 /*
@@ -549,10 +661,14 @@ h1 {
     position: relative;
     width: 100%;
     color: #ffffff;
-    background: #1e1e2d;
+    background: rgba(33, 33, 33, 0.98);
     height:60px;
 }
 
+.footer-disabled .footer {
+    display:none !important;
+    visibility:hidden;
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -561,7 +677,7 @@ h1 {
 */
 
 body::-webkit-scrollbar {
-    width: 1em;
+    width: 0.6em;
 }
 
 body::-webkit-scrollbar-track {
@@ -569,7 +685,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: #323248;
+    background-color: #aaa;
     border-radius:12px;
 }
 
@@ -670,7 +786,7 @@ body::-webkit-scrollbar-thumb {
     right: 27px;
     width: 20px;
     height: 3px;
-    background: #202121;
+    background: #fff;
     transform: rotate(45deg);
     transition: all .3s ease-in-out;
 }
@@ -691,7 +807,7 @@ body::-webkit-scrollbar-thumb {
     justify-content:center;
 }
 
-.image-portrait img {
+.image-portrait .image-container {
     max-width:600px;
 }
 
@@ -826,7 +942,8 @@ body::-webkit-scrollbar-thumb {
 */
 
 .gallery {
-    padding: 80px 0;
+    padding-top:20px;
+    padding-bottom:100px;   
 }
 
 .art-list-renderer ol {
@@ -960,13 +1077,31 @@ body::-webkit-scrollbar-thumb {
 }
 
 .painting-display {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    min-height:100vh;
+    line-height: 0;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
     display: flex;
+    justify-content: center;
     align-items: center;
+}
+
+.painting-display img {
+    flex: 0 0 auto;
+    width: auto !important;
+    height: auto !important;
+    max-width: 40vw !important;
+    max-height: 34% !important;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    box-shadow: 0px 60px 140px -20px rgb(0 0 0 / 60%);
+    transition: opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1), transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 /*
@@ -1080,7 +1215,8 @@ body::-webkit-scrollbar-thumb {
 
 .painting {
     position:relative;
-    margin-bottom: 1.5rem;
+    margin-bottom: 10px;
+    width: 100%;
 }
 
 @media  (max-width: 324px) {
@@ -1155,20 +1291,63 @@ body::-webkit-scrollbar-thumb {
     display: -webkit-box; /* Not needed if autoprefixing */
     display: -ms-flexbox; /* Not needed if autoprefixing */
     display: flex;
-    margin-left: -10px; /* gutter size offset */
-    margin-right: -10px; /* gutter size offset */
+    margin-left: -5px; /* gutter size offset */
+    margin-right: -5px; /* gutter size offset */
     width: auto;
   }
   .my-masonry-grid_column {
-    padding-left:10px;  /* gutter size */
-    padding-right:10px; /* gutter size */
+    padding-left:5px;  /* gutter size */
+    padding-right:5px; /* gutter size */
     background-clip: padding-box;
   }
   
   /* Style your items */
   .my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
     background: grey;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+  }
+
+  .painting {
+    overflow:hidden;
+  }
+
+  .painting:after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: 1em;
+    line-height: 1.2em;
+    font-weight: 300;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    color: #fff !important;
+    margin: 0 !important;
+    opacity: 0;
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 0;
+    background-image: url(/images/add-icon.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 500px 500px;
+    transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1), transform 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+    -webkit-font-smoothing: subpixel-antialiased;
+    box-sizing: content-box;
+    transform: scale(1.5);
+  }
+
+  .painting:hover:after {
+    transform: scale(1);
+    opacity: 1;
+    transition: opacity 0.05s cubic-bezier(0.19, 1, 0.22, 1), transform 1.8s cubic-bezier(0.19, 1, 0.22, 1);
   }
 
   .painting img {
@@ -1187,7 +1366,6 @@ body::-webkit-scrollbar-thumb {
     flex: 1 1;
     -ms-flex: 1 0 0px;
     min-height: 100%;
-    padding-top:70px;
 }
 
 .aside-enabled .wrapper {

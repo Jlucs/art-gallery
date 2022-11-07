@@ -25,7 +25,7 @@ interface Props {
 const Home = ({ paintings }: Props) => {
   let router = useRouter();
   const breakpointColumnsObj = {
-    default: 4,
+    default: 8,
     1100: 3,
     700: 2,
     500: 1
@@ -43,10 +43,7 @@ const Home = ({ paintings }: Props) => {
         )}
 
         <section className="gallery">
-          <div className="container container-fluid container-1280">
-            <div className="section-title">
-                <h1 className="">Feature Art</h1>
-            </div>
+          <div className="container container-fluid container-fluid-large">
             <Masonry
               breakpointCols={breakpointColumnsObj}
               className="my-masonry-grid"
@@ -54,8 +51,8 @@ const Home = ({ paintings }: Props) => {
               {paintings.map((painting) => (
                 <Link href={`/?image=${painting.image && urlFor(painting.image).url()!}`} as={`/paintings/${painting.slug.current}`} scroll={false} key={painting._id}>
                     <a>
-                        <div className="painting">
-                          <img src={painting.image && urlFor(painting.image).url()!} alt = {painting.alt} className="img-fluid" />
+                        <div className="painting image-container">
+                          <Image src={painting.image && urlFor(painting.image).url()!} alt = {painting.alt} className="img-fluid" layout="fill" />
                           {/* <img src="/images/test.webp"/> */}
                         </div>
                     </a>
