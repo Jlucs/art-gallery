@@ -12,6 +12,7 @@
     "@headlessui/react": "^1.7.3",
     "@portabletext/react": "^1.0.6",
     "@sanity/image-url": "^1.0.1",
+    "@vercel/analytics": "^0.1.4",
     "groq": "^2.33.2",
     "next": "12.3.1",
     "next-sanity": "^0.8.4",

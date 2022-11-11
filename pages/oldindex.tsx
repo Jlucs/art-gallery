@@ -20,8 +20,6 @@ interface Props {
   paintings: Painting[];
 }
 
-
-
 const Home = ({ paintings }: Props) => {
   let router = useRouter();
   const breakpointColumnsObj = {

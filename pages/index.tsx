@@ -10,9 +10,6 @@ import { useRouter } from "next/router";
 import { fetchPaintings } from '../utils/fetchPaintings'
 import { fetchCategories } from '../utils/fetchCategories'
 import Masonry from 'react-masonry-css'
-
-
-
 import RouteModal from '../components/Modal/RouteModal'
 import ImageDetail from '../components/Modal/ImageDetail'
 
@@ -20,18 +17,33 @@ interface Props {
   paintings: Painting[];
 }
 
-
-
 const Home = ({ paintings }: Props) => {
+  useEffect( () => {
+    const body = document.querySelector("body");
+    document.body.classList.add("header-enabled");
+    return () => {
+      body?.classList.remove("header-enabled");
+    }
+  });
   let router = useRouter();
   const breakpointColumnsObj = {
     default: 8,
-    1100: 3,
-    700: 2,
-    500: 1
+    1100: 4,
+    700: 3,
+    500: 2
   };
   return (
-    <>  
+      <>  
+        <Head>
+          <title>Graphic design studio from London</title>
+          <meta name="description" content="Our team of artists based in London have a passion for art. Fan art, photo-realistic, anime, abstract, fantasy and all genres our imagination takes us." key="desc" />
+          <meta property="og:title" content="Graphic design studio from London" />
+          <meta
+            property="og:description"
+            content="Our team of artists based in London have a passion for art. Fan art, photo-realistic, anime, abstract, fantasy and all genres our imagination takes us."
+          />
+          <meta name="keywords" content="Fan art, photo-realistic, anime, abstract, fantasy, graphic art" />
+        </Head>
         {router.query.image && (
           <RouteModal
             onClose={() => {
@@ -43,7 +55,7 @@ const Home = ({ paintings }: Props) => {
         )}
 
         <section className="gallery">
-          <div className="container container-fluid container-fluid-large">
+          <div className="container container-fluid">
             <Masonry
               breakpointCols={breakpointColumnsObj}
               className="my-masonry-grid"
